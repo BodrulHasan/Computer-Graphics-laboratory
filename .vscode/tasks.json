@@ -1,0 +1,62 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C++",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build FreeGLUT",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-I",
+                "${workspaceFolder}/include",
+                "-I",
+                "C:/msys64/ucrt64/include",
+                "-L",
+                "C:/msys64/ucrt64/lib",
+                "-lfreeglut",
+                "-lopengl32",
+                "-lglu32",
+                "-lgdi32",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build GLFW GLAD",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "${workspaceFolder}/src/glad.c",
+                "-I",
+                "${workspaceFolder}/include",
+                "-I",
+                "C:/msys64/ucrt64/include",
+                "-L",
+                "C:/msys64/ucrt64/lib",
+                "-lglfw3",
+                "-lopengl32",
+                "-lgdi32",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
