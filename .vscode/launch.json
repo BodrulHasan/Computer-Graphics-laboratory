@@ -44,8 +44,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/CSE/11th Semester/Computer Graphics laboratory/Lab--4",
-      "program": "e:/CSE/11th Semester/Computer Graphics laboratory/Lab--4/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
