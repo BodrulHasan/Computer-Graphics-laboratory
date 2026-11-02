@@ -32,42 +32,12 @@ int main(int argc, char** argv)
 
     return 0;
 }
-
-void display()
-{
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    glLoadIdentity();
-
-  
-   
-
-    glBegin(GL_TRIANGLES);
-
-        glColor3f(0.1, .1, .9);
-
-        glVertex2d(0 , 1);
-        glVertex2d(-1, 0);
-        glVertex2d(1 , 0);
-       
-
-    glEnd();
-
-
-
-
-
-    drawSquare ();
-
-    glutSwapBuffers();
-}
-
-void drawSquare(){
+void drawSquare(float r, float g, float b){
 
 
   glBegin(GL_QUADS);
 
-        glColor3f(1.0, 1.0, 0.0);
+        glColor3f(r,g,b);
         
         glVertex2d(-1,1);
         glVertex2d(-1,-1);
@@ -95,6 +65,33 @@ void drawVertex (){
     glEnd();
 
 };
+
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glLoadIdentity();
+
+
+    // glBegin(GL_TRIANGLES);
+
+    //     glColor3f(0.1, .1, .9);
+
+    //     glVertex2d(0 , 1);
+    //     glVertex2d(-1, 0);
+    //     glVertex2d(1 , 0);
+       
+
+    // glEnd();
+
+     drawVertex ();
+     drawSquare(1.0, 0.5, 0.9);
+     drawSquare(.0, 0.5, 0.9);
+
+    glutSwapBuffers();
+}
+
+
 void reshape(int x, int y)
 {
     glViewport(0, 0, x, y);
@@ -104,6 +101,7 @@ void reshape(int x, int y)
     glLoadIdentity();
 
     gluOrtho2D(-10, 10, -10, 10);
+
 
     glMatrixMode(GL_MODELVIEW);
 }
