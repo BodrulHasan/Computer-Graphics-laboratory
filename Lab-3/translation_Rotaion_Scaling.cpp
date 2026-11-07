@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 
     return 0;
 }
-void drawSquare(float r, float g, float b){
+void drawSquare( float r, float g, float b){
 
 
   glBegin(GL_QUADS);
@@ -49,7 +49,9 @@ void drawSquare(float r, float g, float b){
 
 
 };
-
+// Rotation 
+//x' = x cos 0 + y sin 0
+//y' = x sin 0 - y cos 0 
 
 void drawVertex (){
     
@@ -85,8 +87,20 @@ void display()
     // glEnd();
 
      drawVertex ();
+    
+    //  glTranslatef (2,4,0);            // Translate (Additive)
+    
+
+    
+    // //  glScalef(2,2,1);         //Bigger             // Scalling (multiplicative)  -> center of gravity unchange
+
+    //  glScalef(.5,.5,1);         //Smaller            // Scalling (multiplicative)  -> center of gravity unchange
+
+glPushMatrix();
+     glTranslated(-2,3,0);
+     glScalef(1.5,3,1);
      drawSquare(1.0, 0.5, 0.9);
-     drawSquare(.0, 0.5, 0.9);
+glPopMatrix();    
 
     glutSwapBuffers();
 }
@@ -105,3 +119,5 @@ void reshape(int x, int y)
 
     glMatrixMode(GL_MODELVIEW);
 }
+
+// 30 min class .....
